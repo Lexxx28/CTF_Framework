@@ -22,9 +22,12 @@ def login(request):
         
         request.session["user_id"] = user.id
         request.session["username"] = user.name
+        request.session["role"] = user.role
+        
         request.session.set_expiry(12 * 3600)
         
         print(f"==> {user} logged in!")
+        print(User.get_user_by_name(username).created_at)
         return JsonResponse({"message": "Login successful!"})
         
     
@@ -50,6 +53,7 @@ def register(request):
             password=make_password(password)
         )
         
+        print(User.get_user_by_name(username).created_at)
         # TAMBAHIN FITUR OTP
         
         return HttpResponseRedirect("/login/")
