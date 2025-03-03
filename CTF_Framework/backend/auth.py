@@ -14,6 +14,7 @@ def login(request):
         
         username, password = parameters['username'].lower(), parameters['password']
         user = User.get_user_by_name(username)
+        print(user)
         if not user:
             return JsonResponse({"error": "User not found"}, status=404)
         
@@ -27,7 +28,6 @@ def login(request):
         request.session.set_expiry(12 * 3600)
         
         print(f"==> {user} logged in!")
-        print(User.get_user_by_name(username).created_at)
         return JsonResponse({"message": "Login successful!"})
         
     
