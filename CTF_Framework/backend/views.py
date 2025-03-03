@@ -2,10 +2,13 @@ from django.shortcuts import render, HttpResponse
 from .utils import login_required
 
 def home(request):
-    return HttpResponse("this is home page")
+    return render(request, 'home.html')
 
 def leaderboard(request):
-    return HttpResponse("this is leader board page")
+    return render(request, 'leaderboard.html')
+
+def announcement(request):
+    return HttpResponse("this is announcement page")
 
 @login_required
 def challenge(request):
