@@ -1,5 +1,5 @@
 from django.db import models
-
+from backend.models import User
 
 # Create your models here.
 class Challenges(models.Model):
@@ -8,7 +8,7 @@ class Challenges(models.Model):
     description = models.TextField()
     flag = models.CharField(max_length=100)
     points = models.IntegerField()
-    author = models.CharField(max_length=100)
+    author = models.ForeignKey(User,  on_delete=models.SET_NULL, null=True)
 
     CHALLENGE_CATEGORIES = [
         ("websiteExploitation", "Website Exploitation"),
