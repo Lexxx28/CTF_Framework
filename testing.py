@@ -21,6 +21,7 @@ def login():
     }
     res = x.post(url_full, json=data)
     print(res.text)
+    print(res.cookies)
     
 
 def create_challenge():

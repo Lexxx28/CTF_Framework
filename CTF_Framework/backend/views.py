@@ -8,16 +8,12 @@ def leaderboard(request):
     return render(request, 'leaderboard.html')
 
 def announcement(request):
-    return HttpResponse("this is announcement page")
-
-@login_required
-def challenge(request):
-    return HttpResponse("This is challenge page")
+    return render(request, 'announcement.html')
 
 @login_required
 def profile(request):
-    return HttpResponse("This is profile page")
+    return render(request, 'profile.html')
 
 @login_required
 def teamProfile(request):
-    return HttpResponse("This is team page")
+    return render(request, 'team.html')
